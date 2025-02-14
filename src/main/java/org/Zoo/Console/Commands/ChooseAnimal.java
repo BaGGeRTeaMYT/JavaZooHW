@@ -2,8 +2,6 @@ package org.Zoo.Console.Commands;
 
 import java.util.Scanner;
 
-import static org.Zoo.Console.Commands.TokenTypes.*;
-
 public class ChooseAnimal implements Command {
 
     @Override

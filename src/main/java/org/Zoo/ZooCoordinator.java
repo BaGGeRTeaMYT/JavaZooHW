@@ -2,7 +2,6 @@ package org.Zoo;
 
 import org.Zoo.Console.ConsoleInterface;
 import org.Zoo.Console.Requests.Request;
-import org.Zoo.Console.Requests.RequestTypes;
 import org.Zoo.Console.Requests.RequestableType;
 import org.Zoo.Storages.Storage;
 import org.Zoo.Vet.VetClinic;
@@ -31,6 +30,5 @@ public class ZooCoordinator {
             Request request = console.readInput();
             requestResult = request.execute(type);
         }
-        return;
     }
 }

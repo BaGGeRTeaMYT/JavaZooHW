@@ -14,7 +14,7 @@ public class MyConsole extends ConsolePrototype{
 
     @Override
     public void setProcessor(Processor processor) {
-        return;
+        this.processor = processor;
     }
 
     @Override
