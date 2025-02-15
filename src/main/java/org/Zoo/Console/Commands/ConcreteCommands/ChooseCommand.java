@@ -6,27 +6,25 @@ import org.Zoo.Console.Commands.TokenTypes;
 import org.Zoo.Console.Requests.RequestTypes;
 import org.springframework.stereotype.Component;
 
-import java.util.Scanner;
-
 @Component
-public class ChooseCommand implements NonTerminalCommand {
+public class ChooseCommand extends  NTCommandPrototype {
 
     public ChooseCommand() {}
 
     @Override
     public CommandToken run() {
-        System.out.println("Ожидаю команду, введите h для получения списка команд.");
-        Scanner scanner = new Scanner(System.in);
-        String command = scanner.nextLine();
+        printer.println("Ожидаю команду, введите h для получения списка команд.");
+        String command = reader.getLine();
         command = command.toLowerCase();
         switch (command) {
             case "h":
-                System.out.println("Чтобы добавить животное, введите add_animal;\n" +
-                                   "Чтобы добавить предмет, введите add_item;\n" +
-                                   "Чтобы получить отчёт по количеству животных и потребляемом ими количестве еды, введите report;\n" +
-                                   "Чтобы получить список животных, доступных для контактного зоопарка, введите list;\n" +
-                                   "Чтобы получить содержимое хранилищ с инвентаризационными номерами, введите all;\n" +
-                                   "Чтобы завершить работу, введите quit.");
+                printer.println("""
+                        Чтобы добавить животное, введите add_animal;
+                        Чтобы добавить предмет, введите add_item;
+                        Чтобы получить отчёт по количеству животных и потребляемом ими количестве еды, введите report;
+                        Чтобы получить список животных, доступных для контактного зоопарка, введите list;
+                        Чтобы получить содержимое хранилищ с инвентаризационными номерами, введите all;
+                        Чтобы завершить работу, введите quit.""");
                 return new CommandToken((TokenTypes.SET_COMMAND.ordinal()), CommandCodes.CHOOSE_COMMAND.ordinal());
             case "add_animal":
                 return new CommandToken((TokenTypes.SET_COMMAND.ordinal()), CommandCodes.CHOOSE_ANIMAL.ordinal());
@@ -41,7 +39,7 @@ public class ChooseCommand implements NonTerminalCommand {
             case "all":
                 return new CommandToken((TokenTypes.GENERATE_REQUEST.ordinal()), RequestTypes.ENUMERATION.ordinal());
             default:
-                System.out.println("Неизвестная команда: " + command);
+                printer.println("Неизвестная команда: " + command);
                 return new CommandToken((TokenTypes.SET_COMMAND.ordinal()), CommandCodes.CHOOSE_COMMAND.ordinal());
         }
     }

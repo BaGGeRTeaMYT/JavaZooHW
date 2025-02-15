@@ -21,7 +21,7 @@ public class MyProcessor implements Processor {
     }
 
     @Override
-    public NonTerminalCommand processNonTerminal(CommandToken token) {
+    public NTCommandPrototype processNonTerminal(CommandToken token) {
         if (token.value == CommandCodes.CHOOSE_COMMAND.ordinal()) {
             return new ChooseCommand();
         }
@@ -45,18 +45,18 @@ public class MyProcessor implements Processor {
 
     @Override
     public Request executeToken(CommandToken token) {
-        while (!isTerminal(token)) {
+        while (notTerminal(token)) {
             token = processNonTerminal(token).run();
         }
         return processTerminal(token);
     }
 
     @Override
-    public boolean isTerminal(CommandToken token) {
+    public boolean notTerminal(CommandToken token) {
         if (token.tokenType == TokenTypes.SET_COMMAND.ordinal()) {
-            return false;
-        } else if (token.tokenType == TokenTypes.GENERATE_REQUEST.ordinal()) {
             return true;
+        } else if (token.tokenType == TokenTypes.GENERATE_REQUEST.ordinal()) {
+            return false;
         }
         throw new RuntimeException("Получен неизвестный токен");
     }

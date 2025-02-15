@@ -6,8 +6,6 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class MyStorage extends Storage {
 
@@ -15,7 +13,7 @@ public class MyStorage extends Storage {
     private final ItemStorage itemStorage;
 
     @Autowired
-    MyStorage(AnimalStorage animalStorage, ItemStorage itemStorage) {
+    public MyStorage(AnimalStorage animalStorage, ItemStorage itemStorage) {
         this.animalStorage = animalStorage;
         this.itemStorage = itemStorage;
         this.currentNumber = 0;

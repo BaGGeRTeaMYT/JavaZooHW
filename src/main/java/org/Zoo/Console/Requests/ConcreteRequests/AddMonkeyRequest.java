@@ -18,7 +18,7 @@ public class AddMonkeyRequest extends Request {
             smth.storage.add(monkey);
             loggingString = "Обезьяна добавлена в зоопарк.";
         }
-        System.out.println(loggingString);
+        printer.println(loggingString);
         return 0;
     }
 }

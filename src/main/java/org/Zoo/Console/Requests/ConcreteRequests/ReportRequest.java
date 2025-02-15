@@ -7,7 +7,7 @@ public class ReportRequest extends Request {
 
     @Override
     public int execute(RequestableType smth) {
-        System.out.println(smth.storage.report());
+        printer.println(smth.storage.report());
         return 0;
     }
 }

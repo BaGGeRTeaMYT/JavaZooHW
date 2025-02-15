@@ -17,7 +17,7 @@ public class AddTigerRequest extends Request {
             smth.storage.add(tiger);
             loggingString = "Тигр добавлен в зоопарк.";
         }
-        System.out.println(loggingString);
+        printer.println(loggingString);
         return 0;
     }
 }

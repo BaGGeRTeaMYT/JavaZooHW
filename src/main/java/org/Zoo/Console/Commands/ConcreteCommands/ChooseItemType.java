@@ -6,15 +6,12 @@ import org.Zoo.Console.Commands.TokenTypes;
 import org.Zoo.Console.Requests.RequestTypes;
 import org.Zoo.Items.ItemTypes;
 
-import java.util.Scanner;
-
-public class ChooseItemType implements NonTerminalCommand {
+public class ChooseItemType extends NTCommandPrototype {
 
     @Override
     public CommandToken run() {
-        System.out.print("Введите название предмета: ");
-        Scanner scanner = new Scanner(System.in);
-        String item = scanner.nextLine();
+        printer.print("Введите название предмета: ");
+        String item = reader.getLine();
         switch (item.toLowerCase()) {
             case "компьютер":
             case "computer":
@@ -29,7 +26,7 @@ public class ChooseItemType implements NonTerminalCommand {
             case "abort":
                 return new CommandToken(TokenTypes.SET_COMMAND.ordinal(), CommandCodes.CHOOSE_COMMAND.ordinal());
             default:
-                System.out.println("Неопознанный предмет: " + item);
+                printer.println("Неопознанный предмет: " + item);
         }
         return new CommandToken(TokenTypes.SET_COMMAND.ordinal(), CommandCodes.CHOOSE_ITEM.ordinal());
     }

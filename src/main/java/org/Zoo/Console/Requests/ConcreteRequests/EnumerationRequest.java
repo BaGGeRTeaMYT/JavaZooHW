@@ -11,7 +11,7 @@ public class EnumerationRequest extends Request {
         if (enumeration.isEmpty()) {
             enumeration = "Все хранилища пустые.";
         }
-        System.out.println(enumeration);
+        printer.println(enumeration);
         return 0;
     }
 }

@@ -18,7 +18,7 @@ public class AddWolfRequest extends Request {
             smth.storage.add(wolf);
             loggingString = "Волк добавлен в зоопарк.";
         }
-        System.out.println(loggingString);
+        printer.println(loggingString);
         return 0;
     }
 }

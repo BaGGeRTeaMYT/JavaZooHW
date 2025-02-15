@@ -6,17 +6,14 @@ import org.Zoo.Console.Commands.CommandToken;
 import org.Zoo.Console.Commands.TokenTypes;
 import org.springframework.stereotype.Component;
 
-import java.util.Scanner;
-
 @Component
-public class ChooseAnimalType implements NonTerminalCommand {
+public class ChooseAnimalType extends NTCommandPrototype {
     public ChooseAnimalType() {}
 
     @Override
     public CommandToken run() {
-        System.out.print("Введите название животного: ");
-        Scanner scanner = new Scanner(System.in);
-        String animal = scanner.nextLine();
+        printer.print("Введите название животного: ");
+        String animal = reader.getLine();
         switch (animal.toLowerCase()) {
             case "тигр":
             case "tiger":
@@ -41,7 +38,7 @@ public class ChooseAnimalType implements NonTerminalCommand {
             case "abort":
                 return new CommandToken(TokenTypes.SET_COMMAND.ordinal(), CommandCodes.CHOOSE_COMMAND.ordinal());
             default:
-                System.out.println("Неопознанное животное: \"" + animal + "\"");
+                printer.println("Неопознанное животное: \"" + animal + "\"");
         }
         return new CommandToken(TokenTypes.SET_COMMAND.ordinal(), CommandCodes.CHOOSE_ANIMAL.ordinal());
     }

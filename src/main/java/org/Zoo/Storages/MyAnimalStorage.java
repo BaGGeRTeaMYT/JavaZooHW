@@ -9,15 +9,15 @@ import java.util.Vector;
 @Component
 public class MyAnimalStorage implements AnimalStorage {
 
-    MyAnimalStorage() {
-        this.animals = new Vector<Animal>();
+    public MyAnimalStorage() {
+        this.animals = new Vector<>();
         this.requiredFood = 0;
     }
 
     @Override
     public String report() {
-        return "Животных в зоопарке: " + String.valueOf(animals.size()) + "\n" +
-               "Необходимо корма в день: " + String.valueOf(requiredFood) + ".";
+        return "Животных в зоопарке: " + animals.size() + "\n" +
+               "Необходимо корма в день: " + requiredFood + ".";
     }
 
     @Override
@@ -65,7 +65,7 @@ public class MyAnimalStorage implements AnimalStorage {
     public String describe(Animal animal) {
         StringBuilder description = new StringBuilder();
         String tmpStr = "\tЖивотное " + animal.getName() + "\n" +
-                "\t\tНомер: " + String.valueOf(animal.getNumber()) + "\n" +
+                "\t\tНомер: " + animal.getNumber() + "\n" +
                 "\t\tТребует еды: " + animal.getFood();
         description.append(tmpStr);
         if (animal instanceof Herbivore) {
