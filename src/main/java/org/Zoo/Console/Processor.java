@@ -1,10 +1,13 @@
 package org.Zoo.Console;
 
 import org.Zoo.Console.Commands.CommandToken;
-import org.Zoo.Console.Commands.Command;
+import org.Zoo.Console.Commands.ConcreteCommands.NonTerminalCommand;
+import org.Zoo.Console.Requests.Request;
 
 public interface Processor {
 
-    Command processToken(CommandToken token);
-    CommandToken executeCommand(Command cmd);
+    Request processTerminal(CommandToken token);
+    NonTerminalCommand processNonTerminal(CommandToken token);
+    Request executeToken(CommandToken token );
+    boolean isTerminal(CommandToken token);
 }

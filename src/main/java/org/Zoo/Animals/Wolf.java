@@ -1,8 +1,8 @@
 package org.Zoo.Animals;
 
 public class Wolf extends Predator {
-    public Wolf(int food, int number) {
-        super(food, number);
+    public Wolf(int food) {
+        super(food);
     }
 
     @Override

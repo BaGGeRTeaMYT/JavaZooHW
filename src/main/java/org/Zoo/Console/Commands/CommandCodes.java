@@ -1,8 +1,9 @@
 package org.Zoo.Console.Commands;
 
 public enum CommandCodes {
-    QUIT,
-    ADD,
+    CHOOSE_ANIMAL,
+    CHOOSE_ITEM,
     CHOOSE_COMMAND,
-    CHOOSE_ANIMAL
+    CHOOSE_ANIMAL_PARAMS
+
 }

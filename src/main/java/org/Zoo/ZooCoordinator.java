@@ -20,7 +20,6 @@ public class ZooCoordinator {
         this.console = console;
         this.storage = storage;
         this.vet = vet;
-        coordinate();
     }
 
     void coordinate() {

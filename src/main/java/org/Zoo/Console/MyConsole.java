@@ -1,15 +1,20 @@
 package org.Zoo.Console;
 
-import org.Zoo.Console.Commands.*;
-import org.Zoo.Console.Requests.AddMonkeyRequest;
+import org.Zoo.Console.Commands.CommandCodes;
+import org.Zoo.Console.Commands.CommandToken;
+import org.Zoo.Console.Commands.TokenTypes;
 import org.Zoo.Console.Requests.Request;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MyConsole extends ConsolePrototype{
 
-    public MyConsole() {
+    private Processor processor;
 
+    @Autowired
+    public MyConsole(Processor processor) {
+        this.processor = processor;
     }
 
     @Override
@@ -17,11 +22,16 @@ public class MyConsole extends ConsolePrototype{
         this.processor = processor;
     }
 
+
+
     @Override
     public Request readInput() {
-        Command cmd = new ChooseCommand();
-        CommandToken token = processor.executeCommand(cmd);
-        return new AddMonkeyRequest(7, 2);
+        return processor.executeToken(new CommandToken(TokenTypes.SET_COMMAND.ordinal(), CommandCodes.CHOOSE_COMMAND.ordinal()));
+    }
+
+    @Override
+    public String version() {
+        return "1.0.0";
     }
 
 }

@@ -6,4 +6,5 @@ public interface ConsoleInterface {
 
     void setProcessor(Processor processor);
     Request readInput();
+    String version();
 }

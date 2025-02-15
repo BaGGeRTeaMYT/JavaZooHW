@@ -11,14 +11,26 @@ public abstract class Animal implements IAlive, IInventory {
         return number;
     }
 
+    public static boolean isHerbivore(int animalType) {
+        return (animalType == AnimalTypes.MONKEY.ordinal() || animalType == AnimalTypes.RABBIT.ordinal());
+    }
+
+    public static boolean isPredator(int animalType) {
+        return (animalType == AnimalTypes.WOLF.ordinal() || animalType == AnimalTypes.TIGER.ordinal());
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
     public
     abstract String describe();
 
-    Animal(int food, int number) {
+    Animal(int food) {
         this.food = food;
-        this.number = number;
+        number = -1;
     }
     final int food;
-    final int number;
+    protected int number;
 
 }

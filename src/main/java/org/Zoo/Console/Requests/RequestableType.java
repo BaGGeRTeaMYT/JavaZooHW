@@ -4,8 +4,8 @@ import org.Zoo.Storages.Storage;
 import org.Zoo.Vet.VetClinic;
 
 public class RequestableType {
-    VetClinic vet;
-    Storage storage;
+    public VetClinic vet;
+    public Storage storage;
 
     public RequestableType(VetClinic vet, Storage storage) {
         this.vet = vet;

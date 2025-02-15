@@ -1,12 +1,21 @@
 package org.Zoo.Console.Commands;
 
+import org.springframework.stereotype.Component;
+
+import java.lang.reflect.Array;
+
 public class CommandToken {
-    CommandToken(int tokenType_, int value_) {
-        tokenType = tokenType_;
-        value = value_;
+    public CommandToken(int tokenType, int value, int[] additionalInfo) {
+        this.tokenType = tokenType;
+        this.value = value;
+        this.additionalInfo = additionalInfo;
     }
-    CommandToken(int tokenType_) {
-        tokenType = tokenType_;
+    public CommandToken(int tokenType, int value) {
+        this.tokenType = tokenType;
+        this.value = value;
+    }
+    public CommandToken(int tokenType) {
+        this.tokenType = tokenType;
         value = 0;
     }
 
@@ -16,5 +25,5 @@ public class CommandToken {
 
     public int tokenType;
     public int value;
-    public int additionalInfo;
+    public int[] additionalInfo;
 }

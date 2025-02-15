@@ -2,13 +2,17 @@ package org.Zoo.Animals;
 
 public abstract class Herbivore extends Animal {
 
-    Herbivore(int food, int number, int kindness) {
-        super(food, number);
+    Herbivore(int food, int kindness) {
+        super(food);
         this.kindness = kindness;
     }
 
     public int getKindness() {
         return kindness;
+    }
+
+    public boolean isKind() {
+        return kindness >= 5;
     }
 
     @Override

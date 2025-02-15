@@ -11,6 +11,8 @@ public abstract class Request implements RequestInterface {
         this.additionalInfo = 0;
     }
 
+    public Request() {}
+
     public int value;
     public int additionalInfo;
 }

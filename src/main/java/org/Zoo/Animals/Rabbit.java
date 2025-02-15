@@ -1,8 +1,8 @@
 package org.Zoo.Animals;
 
 public class Rabbit extends Herbivore {
-    public Rabbit(int food, int number, int kindness) {
-        super(food, number, kindness);
+    public Rabbit(int food, int kindness) {
+        super(food, kindness);
     }
 
     @Override

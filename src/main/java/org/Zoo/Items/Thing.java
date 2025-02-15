@@ -12,5 +12,10 @@ public class Thing implements IInventory {
         return number;
     }
 
+    @Override
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
     int number;
 }
